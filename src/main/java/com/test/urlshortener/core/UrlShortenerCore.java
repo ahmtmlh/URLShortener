@@ -18,6 +18,9 @@ public class UrlShortenerCore {
             n = (n / 62);
         }
 
+        if (ret.length() < 6)
+            ret.insert(0, "0".repeat(6 - ret.length()));
+
         return (isNegative ? "0" : "1") + ret.toString();
     }
 }
