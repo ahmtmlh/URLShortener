@@ -15,10 +15,6 @@ public class UrlService {
     @Autowired
     private UrlRepository urlRepository;
 
-    public Optional<CustomURL> getLastUrl(){
-        return Optional.ofNullable(urlRepository.findTop1ByOrderByDateDesc());
-    }
-
     public CustomURL getUrlByShortId(String shortId) throws Exception {
         Optional<CustomURL> url = urlRepository.findByShortId(shortId);
         url.orElseThrow(() -> new Exception("No short id was found by this id"));
